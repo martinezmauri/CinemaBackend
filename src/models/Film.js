@@ -11,6 +11,6 @@ const filmSchema = new mongoose.Schema({
   genre: [{ type: mongoose.Schema.Types.ObjectId, ref: "Genre" }],
 });
 // quizas genre debe ser un array
-const Film = mongoose.model("Film", filmSchema);
+const Film = mongoose.model("Film", filmSchema, "Films");
 
 export default Film;
