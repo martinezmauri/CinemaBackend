@@ -6,7 +6,7 @@ class UserRepository {
       const users = await User.find();
       return users;
     } catch (error) {
-      return error;
+      throw new Error("Error al obtener los usuarios.");
     }
   }
 
@@ -15,7 +15,7 @@ class UserRepository {
       const user = await User.findById(id);
       return user;
     } catch (error) {
-      return error;
+      throw new Error("Error al obtener el usuario.");
     }
   }
 
@@ -24,7 +24,14 @@ class UserRepository {
       const user = await User.findOne({ email: email });
 
       return user;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error("Error al obtener el usuario.");
+    }
+  }
+
+  async save(user) {
+    const updated = await User.findByIdAndUpdate(user._id, user, { new: true });
+    return updated;
   }
 }
 
