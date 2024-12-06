@@ -1,10 +1,12 @@
 import FilmRepository from "../repository/FilmRepository";
 import CloudService from "./CloudService";
+import GenreService from "./GenreService";
 
 class FilmService {
   constructor() {
     this.filmRepository = new FilmRepository();
     this.cloudService = new CloudService();
+    this.genreService = new GenreService();
   }
 
   async findAll() {
@@ -16,12 +18,14 @@ class FilmService {
   }
 
   async create(film) {
-    const { poster_url } = film;
+    const { poster_url, id_category } = film;
+    const genre = await this.genreService.findById(id_category);
 
-    const secure_url = this.cloudService.uploadImage(poster_url);
+    const secure_url = await this.cloudService.uploadImage(poster_url);
     const createdFilm = {
       ...film,
       poster_url: secure_url,
+      genre,
     };
     return this.filmRepository.create(createdFilm);
   }

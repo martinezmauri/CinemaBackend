@@ -16,6 +16,6 @@ conDb()
   });
 
 /* 
-    Parcialmente listos: Auth - User - Film
-    A Trabajar:  Genre - UserFavorites - Crear clase para errores (NotFoundError,BadRequest,etc) - Middlewares
+    Parcialmente listos: Auth - User - Film - Genre
+    A Trabajar: UserFavorites - Crear clase para errores (NotFoundError,BadRequest,etc) - Middlewares
    */
