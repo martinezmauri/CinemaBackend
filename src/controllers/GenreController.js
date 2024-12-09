@@ -16,7 +16,7 @@ class GenreController {
 
   findByIds(req, res) {
     try {
-      const { ids } = req.params;
+      const { ids } = req.body;
       const genre = this.genreService.findByIds(ids);
       res.status(200).json(genre);
     } catch (error) {

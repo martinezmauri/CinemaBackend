@@ -19,7 +19,7 @@ class FilmService {
 
   async create(film) {
     const { poster_url, id_category } = film;
-    const genre = await this.genreService.findById(id_category);
+    const genre = await this.genreService.findByIds(id_category);
 
     const secure_url = await this.cloudService.uploadImage(poster_url);
     const createdFilm = {

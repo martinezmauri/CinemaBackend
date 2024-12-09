@@ -1,5 +1,7 @@
 import express from "express";
 import router from "./routes/indexRoutes.js";
+import GlobalMiddleware from "./middlewares/GlobalMiddleware.js";
+
 class App {
   constructor() {
     this.app = express();
@@ -9,6 +11,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json());
+    this.app.use(GlobalMiddleware.logEndpoint);
   }
 
   routes() {
