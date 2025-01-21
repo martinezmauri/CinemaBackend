@@ -1,7 +1,9 @@
-import Genre from "../models/Genre";
+import Genre from "../models/Genre.js";
 import mongoose from "mongoose";
+// falta el middleware para update y quizas para delete
 class ValidationFilm {
   static validationFind(req, res, next) {
+    // quizas no es necesario
     const { id } = req.params;
     if (!id || typeof id !== "string" || id.trim() === "") {
       return res
@@ -11,6 +13,7 @@ class ValidationFilm {
     next();
   }
   static async validationCreate(req, res, next) {
+    //falta validar cuando se carguen los generos
     const {
       title,
       director,
@@ -42,7 +45,7 @@ class ValidationFilm {
         .status(400)
         .json({ error: "La valoracion es obligatorio y debe ser un number." });
     }
-    if (!release_date || typeof release_date !== "number") {
+    if (!release_date || typeof release_date !== "string") {
       return res.status(400).json({
         error: "La fecha de lanzamiento es obligatoria y debe ser un Date",
       });

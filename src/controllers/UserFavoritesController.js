@@ -1,4 +1,4 @@
-import UserFavoritesService from "../services/UserFavoritesService";
+import UserFavoritesService from "../services/UserFavoritesService.js";
 
 class UserFavoritesController {
   constructor() {

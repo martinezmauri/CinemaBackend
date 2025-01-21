@@ -1,4 +1,4 @@
-import GenreRepository from "../repository/GenreRepository";
+import GenreRepository from "../repository/GenreRepository.js";
 
 class GenreService {
   constructor() {

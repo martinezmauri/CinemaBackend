@@ -1,6 +1,6 @@
-import FilmRepository from "../repository/FilmRepository";
-import CloudService from "./CloudService";
-import GenreService from "./GenreService";
+import FilmRepository from "../repository/FilmRepository.js";
+import CloudService from "./CloudService.js";
+import GenreService from "./GenreService.js";
 
 class FilmService {
   constructor() {

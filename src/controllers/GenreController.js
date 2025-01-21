@@ -1,13 +1,16 @@
-import GenreService from "../services/GenreService";
+import GenreService from "../services/GenreService.js";
 
 class GenreController {
   constructor() {
     this.genreService = new GenreService();
+
+    this.findAll = this.findAll.bind(this);
+    this.findByIds = this.findByIds.bind(this);
   }
 
-  findAll(res, res) {
+  findAll(req, res) {
     try {
-      const genres = this.genreService.findById();
+      const genres = this.genreService.findAll();
       res.status(200).json(genres);
     } catch (error) {
       res.status(400).json({ error: error.message });

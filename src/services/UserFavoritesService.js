@@ -1,4 +1,4 @@
-import UserFavoritesRepository from "../repository/UserFavoritesRepository";
+import UserFavoritesRepository from "../repository/UserFavoritesRepository.js";
 
 class UserFavoritesService {
   constructor() {

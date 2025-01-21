@@ -35,11 +35,6 @@ class ValidationAuth {
         .json({ error: "El email es obligatorio y debe ser un string." });
     }
 
-    if (!img_profile) {
-      return res
-        .status(400)
-        .json({ error: "La imagen de perfil es oblitoria." });
-    }
     next();
   }
 }

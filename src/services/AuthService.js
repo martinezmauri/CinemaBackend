@@ -30,7 +30,12 @@ class AuthService {
     if (!hash) {
       throw new Error("Error al registrar al usuario.");
     }
-    const secure_url = await this.cloudService.uploadImage(user.img_profile);
+    let secure_url = "";
+    if (user.img_profile) {
+      secure_url = await this.cloudService.uploadImage(user.img_profile);
+    } else {
+      secure_url = process.env.DEFAULT_IMAGE;
+    }
 
     const userWithHash = {
       ...user,
@@ -49,7 +54,7 @@ class AuthService {
     }
     const verify = await bcrypt.compare(password, userFound.password);
     if (!verify) {
-      throw new Error("Email y/o contraseña incorrecta.");
+      throw new Error("Email y/o contraseña incorrectas.");
     }
 
     const user = {

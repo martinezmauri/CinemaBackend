@@ -1,4 +1,4 @@
-import UserFavorites from "../models/UserFavorites";
+import UserFavorites from "../models/UserFavorites.js";
 
 class UserFavoritesRepository {
   async findAll(id) {

@@ -1,8 +1,11 @@
-import FilmService from "../services/FilmService";
+import FilmService from "../services/FilmService.js";
 
 class FilmController {
   constructor() {
     this.filmService = new FilmService();
+
+    this.findAll = this.findAll.bind(this);
+    this.findById = this.findById.bind(this);
   }
 
   async findAll(req, res) {
@@ -10,6 +13,8 @@ class FilmController {
       const films = await this.filmService.findAll();
       res.status(200).json(films);
     } catch (error) {
+      console.log(error);
+
       res.status(400).json({ error: error.message });
     }
   }
