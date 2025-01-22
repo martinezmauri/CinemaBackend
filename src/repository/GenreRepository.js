@@ -13,6 +13,7 @@ class GenreRepository {
   async findByIds(ids) {
     try {
       const genre = await Genre.find({ _id: { $in: ids } });
+
       return genre;
     } catch (error) {
       throw new Error("Error al obtener el genero por id.");
@@ -30,10 +31,11 @@ class GenreRepository {
 
   async create(genre) {
     try {
-      const genreCreated = await Genre.create(genre);
+      const genreCreated = await Genre.create({ name: genre });
+
       return genreCreated;
     } catch (error) {
-      throw new Error("Error al crear genero.");
+      throw new Error("Error al crear genero.", error);
     }
   }
 

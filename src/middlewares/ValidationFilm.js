@@ -1,19 +1,16 @@
 import Genre from "../models/Genre.js";
 import mongoose from "mongoose";
-// falta el middleware para update y quizas para delete
+// falta el middleware para update
 class ValidationFilm {
-  static validationFind(req, res, next) {
-    // quizas no es necesario
+  static validationId(req, res, next) {
     const { id } = req.params;
-    if (!id || typeof id !== "string" || id.trim() === "") {
-      return res
-        .status(400)
-        .json({ error: "El id es obligatorio y debe ser un string." });
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "ID Invalido" });
     }
     next();
   }
+
   static async validationCreate(req, res, next) {
-    //falta validar cuando se carguen los generos
     const {
       title,
       director,
@@ -90,6 +87,45 @@ class ValidationFilm {
     } catch (error) {
       return res.status(500).json({ error: "Error al validar los géneros." });
     }
+  }
+
+  static ValidationUpdate(req, res, next) {
+    const { id, film } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "ID Invalido" });
+    }
+
+    if (!film || typeof film !== "object") {
+      return res
+        .status(400)
+        .json({ error: "El campo film es requerido y debe ser un objeto" });
+    }
+
+    const validKeys = [
+      "title",
+      "director",
+      "duration",
+      "rate",
+      "release_date",
+      "poster_url",
+      "description",
+      "genre",
+    ];
+    const keys = Object.keys(film);
+    if (keys.length === 0 || !keys.some((key) => validKeys.includes(key))) {
+      return res
+        .status(400)
+        .json({ error: "El objeto film debe tener al menos un campo válido" });
+    }
+    next();
+  }
+  static validationDelete(req, res, next) {
+    const { id } = req.body;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "ID Invalido" });
+    }
+    next();
   }
 }
 

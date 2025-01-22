@@ -6,6 +6,7 @@ class FilmController {
 
     this.findAll = this.findAll.bind(this);
     this.findById = this.findById.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   async findAll(req, res) {

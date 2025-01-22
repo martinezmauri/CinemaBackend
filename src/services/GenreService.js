@@ -9,16 +9,16 @@ class GenreService {
     return this.genreRepository.findAll();
   }
   async findByIds(ids) {
-    return this.genreRepository.findByIds(ids);
+    return await this.genreRepository.findByIds(ids);
   }
   async findByName(name) {
     return this.genreRepository.findByName(name);
   }
   async create(genre) {
-    return this.genreRepository.create(genre);
+    return await this.genreRepository.create(genre);
   }
   async delete(id) {
-    return this.genreRepository.delete(id);
+    return await this.genreRepository.delete(id);
   }
 }
 

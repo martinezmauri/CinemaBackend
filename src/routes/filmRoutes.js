@@ -7,13 +7,21 @@ const filmController = new FilmController();
 
 // falta testear create,update,delete
 filmRouter.get("/", filmController.findAll);
-filmRouter.get("/:id", filmController.findById);
+filmRouter.get("/:id", ValidationFilm.validationId, filmController.findById);
 filmRouter.post(
   "/create",
   ValidationFilm.validationCreate,
   filmController.create
 );
-filmRouter.post("/update", filmController.update);
-filmRouter.post("/delete", filmController.delete);
+filmRouter.post(
+  "/update",
+  ValidationFilm.ValidationUpdate,
+  filmController.update
+);
+filmRouter.post(
+  "/delete",
+  ValidationFilm.validationDelete,
+  filmController.delete
+);
 
 export default filmRouter;
