@@ -43,3 +43,8 @@ class UserFavoritesController {
 }
 
 export default UserFavoritesController;
+
+/* 
+- Si se elimina un usuario sus favoritos quedan.
+- Si se intenta borrar una pelicula con un userId incorrecto explota
+ */
