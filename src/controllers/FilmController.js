@@ -22,9 +22,9 @@ class FilmController {
 
   async findById(req, res) {
     try {
-      const { id } = req.body;
+      const { id } = req.params;
       const film = await this.filmService.findById(id);
-      res.status(400).json(film);
+      res.status(200).json(film);
     } catch (error) {
       res.status(400).json({ error: error.message });
     }

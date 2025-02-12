@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "duration": 148,
+    "rate": 8.8,
+    "release_date": "2010-07-16T00:00:00.000Z",
+    "poster_url": "https://example.com/inception.jpg",
+    "description": "A thief who enters the dreams of others to steal secrets from their subconscious is given the task of planting an idea in someone's mind."
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "director": "Frank Darabont",
+    "duration": 142,
+    "rate": 9.3,
+    "release_date": "1994-09-23T00:00:00.000Z",
+    "poster_url": "https://example.com/shawshank.jpg",
+    "description": "Two imprisoned men bond over several years, finding solace and eventual redemption through acts of common decency."
+  },
+  {
+    "title": "The Godfather",
+    "director": "Francis Ford Coppola",
+    "duration": 175,
+    "rate": 9.2,
+    "release_date": "1972-03-24T00:00:00.000Z",
+    "poster_url": "https://example.com/godfather.jpg",
+    "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+  },
+  {
+    "title": "Pulp Fiction",
+    "director": "Quentin Tarantino",
+    "duration": 154,
+    "rate": 8.9,
+    "release_date": "1994-10-14T00:00:00.000Z",
+    "poster_url": "https://example.com/pulpfiction.jpg",
+    "description": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+  },
+  {
+    "title": "The Dark Knight",
+    "director": "Christopher Nolan",
+    "duration": 152,
+    "rate": 9.0,
+    "release_date": "2008-07-18T00:00:00.000Z",
+    "poster_url": "https://example.com/darkknight.jpg",
+    "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+  }
+]

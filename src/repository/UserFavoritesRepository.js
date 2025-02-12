@@ -1,11 +1,17 @@
 import UserFavorites from "../models/UserFavorites.js";
+import mongoose from "mongoose";
 
 class UserFavoritesRepository {
   async findAll(id) {
     try {
-      const favorites = await UserFavorites.find({ user_id: id });
+      const objectId = new mongoose.Types.ObjectId(id.userId);
+      const favorites = await UserFavorites.find({ user_id: objectId });
+      console.log(favorites);
+
       return favorites;
     } catch (error) {
+      console.log(error);
+
       throw new Error("Error al obtener las peliculas favoritas.");
     }
   }
