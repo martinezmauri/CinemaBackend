@@ -8,19 +8,19 @@ class UserController {
     this.findById = this.findById.bind(this);
   }
 
-  findAll(req, res) {
+  async findAll(req, res) {
     try {
-      const users = this.userService.findAll();
+      const users = await this.userService.findAll();
       res.status(200).json(users);
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
   }
 
-  findById(req, res) {
+  async findById(req, res) {
     try {
       const { id } = req.params;
-      const user = this.userService.findById(id);
+      const user = await this.userService.findById(id);
       res.status(200).json(user);
     } catch (error) {
       res.status(400).json({ error: error.message });

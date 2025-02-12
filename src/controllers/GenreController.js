@@ -10,9 +10,9 @@ class GenreController {
     this.create = this.create.bind(this);
   }
 
-  findAll(req, res) {
+  async findAll(req, res) {
     try {
-      const genres = this.genreService.findAll();
+      const genres = await this.genreService.findAll();
       res.status(200).json(genres);
     } catch (error) {
       res.status(400).json({ error: error.message });
