@@ -3,6 +3,7 @@ import router from "./routes/indexRoutes.js";
 import GlobalMiddleware from "./middlewares/GlobalMiddleware.js";
 import FilmRepository from "./repository/FilmRepository.js";
 import { readFile } from "fs/promises";
+import cors from "cors";
 
 const loadMovies = async () => {
   const data = await readFile(
@@ -32,6 +33,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json());
+    this.app.use(cors());
     this.app.use(GlobalMiddleware.logEndpoint);
   }
 
