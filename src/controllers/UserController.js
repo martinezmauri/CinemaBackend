@@ -3,7 +3,6 @@ class UserController {
   constructor() {
     this.userService = new UserService();
 
-    //Asegura que los métodos mantengan el contexto de `this`
     this.findAll = this.findAll.bind(this);
     this.findById = this.findById.bind(this);
   }

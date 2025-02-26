@@ -1,6 +1,5 @@
 import Genre from "../models/Genre.js";
 import mongoose from "mongoose";
-// falta el middleware para update
 class ValidationFilm {
   static validationId(req, res, next) {
     const { id } = req.params;

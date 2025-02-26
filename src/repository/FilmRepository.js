@@ -33,9 +33,9 @@ class FilmRepository {
 
   async seederFilm(films) {
     for (let film of films) {
-      const existingFilm = await Film.findOne({ title: film.title }); // Usar un campo único como `title`
+      const existingFilm = await Film.findOne({ title: film.title });
       if (!existingFilm) {
-        await Film.create(film); // Si no existe, crea la nueva película
+        await Film.create(film);
       }
     }
   }
