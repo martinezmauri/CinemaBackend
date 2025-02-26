@@ -1,12 +1,18 @@
 import { Router } from "express";
 import FilmController from "../controllers/FilmController.js";
 import ValidationFilm from "../middlewares/ValidationFilm.js";
+import ValidationJwt from "../middlewares/ValidationJwt.js";
 
 const filmRouter = Router();
 const filmController = new FilmController();
 
 filmRouter.get("/", filmController.findAll);
-filmRouter.get("/:id", ValidationFilm.validationId, filmController.findById);
+filmRouter.get(
+  "/:id",
+  ValidationFilm.validationId,
+  ValidationJwt.validationToken,
+  filmController.findById
+);
 filmRouter.post(
   "/create",
   ValidationFilm.validationCreate,
