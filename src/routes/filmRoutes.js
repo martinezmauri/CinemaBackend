@@ -5,7 +5,6 @@ import ValidationFilm from "../middlewares/ValidationFilm.js";
 const filmRouter = Router();
 const filmController = new FilmController();
 
-// falta testear create,update,delete
 filmRouter.get("/", filmController.findAll);
 filmRouter.get("/:id", ValidationFilm.validationId, filmController.findById);
 filmRouter.post(

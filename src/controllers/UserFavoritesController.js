@@ -3,8 +3,8 @@ import UserFavoritesService from "../services/UserFavoritesService.js";
 class UserFavoritesController {
   constructor() {
     this.userFavoriteService = new UserFavoritesService();
-    this.findAll = this.findAll.bind(this); // Asegurando que `this` esté correctamente vinculado
-    this.addFavorite = this.addFavorite.bind(this); // Asegurando que `this` esté correctamente vinculado
+    this.findAll = this.findAll.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
     this.removeFavorite = this.removeFavorite.bind(this);
   }
 
