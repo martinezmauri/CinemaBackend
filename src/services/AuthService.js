@@ -57,16 +57,22 @@ class AuthService {
       throw new Error("Email y/o contraseña incorrectas.");
     }
 
-    const user = {
+    const payload = {
       id: userFound.id,
       email: userFound.email,
       type: userFound.role,
     };
+    const user = {
+      id: userFound.id,
+      name: userFound.name,
+      email: userFound.email,
+      img_profile: userFound.img_profile,
+    };
     const secret = process.env.JWT_SECRET;
-    const token = jwt.sign(user, secret, { expiresIn: "3h" });
+    const token = jwt.sign(payload, secret, { expiresIn: "3h" });
     return {
-      success: true,
       token,
+      user,
     };
   }
 }
