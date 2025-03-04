@@ -20,12 +20,15 @@ class FilmService {
   async create(film) {
     const { poster_url, id_category } = film;
     const genre = await this.genreService.findByIds(id_category);
+    if (genre.length !== id_category.length) {
+      throw new Error("Uno o mas generos no existen.");
+    }
 
     const secure_url = await this.cloudService.uploadImage(poster_url);
     const createdFilm = {
       ...film,
       poster_url: secure_url,
-      genre,
+      genre: id_category,
     };
     return this.filmRepository.create(createdFilm);
   }

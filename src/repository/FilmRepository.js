@@ -3,11 +3,14 @@ class FilmRepository {
   constructor() {}
 
   async findAll() {
-    return await Film.find();
+    const films = await Film.find().populate("genre", "name");
+
+    return films;
   }
 
   async findById(id) {
-    const film = await Film.findById(id);
+    const film = await Film.findById(id).populate("genre");
+
     return film;
   }
 
